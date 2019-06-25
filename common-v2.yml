@@ -1,10 +1,38 @@
-id: ''
-$schema: 'http://json-schema.org/draft-04/schema#'
-title: CKI_Common
-cmm:
-  projectName: CKI Update passenger list
-  modelUnits:
-    - modelName: CKI_Common
+swagger: '2.0'
+info:
+  title: common-v2
+  version: "v2"
+  description: common-v2 
+  contact:
+    name: Contact Us
+    url: 'https://beta.developer.sabre.com/contact'
+x-project-id: common-v2
+host: api-crt.cert.havail.sabre.com
+basePath: /
+schemes:
+  - https
+consumes:
+  - application/json
+produces:
+  - application/json
+paths:
+  /v2/cki/common-v2:
+    post:
+      operationId: common-v2
+      responses:
+        '200':
+          description: Success
+        '400':
+          description: |
+            Bad Request
+securityDefinitions:
+  oauth2_authentication:
+    type: oauth2
+    tokenUrl: 'https://api-crt.cert.havail.sabre.com/v2/auth/token'
+    flow: application
+    x-base64-encode-client-credentials: true
+security:
+  - oauth2_authentication: []
 definitions:
   WebServiceRQ:
     type: object
